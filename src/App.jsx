@@ -1,6 +1,9 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
 import { AuthLayout } from './layouts/AuthLayout'
+
 import { Login } from './paginas/Login'
+import { Registrar } from './paginas/Registrar'
 
 
 function App() {
@@ -10,6 +13,7 @@ function App() {
       <Routes>
         <Route path='/' element={<AuthLayout />}>
           <Route index element={<Login />} />
+          <Route path='registrar' element={<Registrar />} />
 
         </Route>
         <Route path='/'>
