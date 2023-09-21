@@ -24,6 +24,31 @@ export const Registrar = () => {
       return
     }
 
+    if( password.length < 6 ){
+      setAlerta({
+        msg: 'el password es muy corto, agrega minimo 6 caracteres',
+        error: true
+      })
+      setTimeout(() => {
+        setAlerta({})
+      }, 3000)
+      return
+    }
+
+    if( password !== repetirPassword ){
+      setAlerta({
+        msg: 'Los password no son iguales',
+        error: true
+      })
+      setTimeout(() => {
+        setAlerta({})
+      }, 3000)
+      return
+    }
+
+    // Crear el usuario en la API
+    
+
   }
 
   const { msg } = alerta
