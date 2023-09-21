@@ -71,7 +71,7 @@ export const Registrar = () => {
       </form>
 
       <nav className="lg:flex lg:justify-between">
-        {/* Registrarse en la App */}
+        {/* Iniciar Sesión */}
         <div className='flex md:flex-row justify-center my-5'>
           <p className='block text-center md:my-0 my-2 text-slate-900 uppercase text-sm mr-2'>¿Ya tienes una Cuenta?</p>
           <Link 
@@ -83,7 +83,7 @@ export const Registrar = () => {
         {/* Olvide Passsword */}
         <Link 
           className='block text-center my-5 text-slate-500 uppercase text-sm underline'
-          to="olvide-password"
+          to="/olvide-password"
         > Olvidé mi Password</Link>
       </nav>
 
