@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { Alerta } from '../components/Alerta'
 
 export const Registrar = () => {
 
@@ -7,7 +8,25 @@ export const Registrar = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [repetirPassword, setRepetirPassword] = useState('')
+  const [alerta, setAlerta] = useState({})
 
+  const handleSubmit = e => {
+    e.preventDefault()
+
+    if([nombre, email, password, repetirPassword].includes('')){
+      setAlerta({
+        msg: 'Todos los campos son obligatorios',
+        error: true
+      })
+      setTimeout(() => {
+        setAlerta({})
+      }, 3000)
+      return
+    }
+
+  }
+
+  const { msg } = alerta
 
   return (
     <>
@@ -15,7 +34,12 @@ export const Registrar = () => {
         <span className='text-slate-700'> Proyectos</span> 
       </h1>
 
-      <form className='my-10  bg-gray-400 shadow-xl rounded-lg px-10 py-5'>
+      { msg && <Alerta alerta={alerta} /> }
+
+      <form 
+        onSubmit={handleSubmit}
+        className='my-10  bg-gray-400 shadow-xl rounded-lg px-10 py-5'
+      >
         
         {/* Nombre */}
         <div>
