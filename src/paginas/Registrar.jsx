@@ -1,6 +1,14 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 export const Registrar = () => {
+
+  const [nombre, setNombre] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [repetirPassword, setRepetirPassword] = useState('')
+
+
   return (
     <>
       <h1 className="text-center text-sky-600 font-black text-5xl capitalize">Crea tu Cuenta y Administra Tus
@@ -20,6 +28,8 @@ export const Registrar = () => {
             type='text'
             placeholder='Nombre de Registro'
             className='w-full mt-1 p-2 border rounded-lg bg-gray-200'
+            value={ nombre }
+            onChange={ e => setNombre(e.target.value) }
           />
         </div>
         {/* Email */}
@@ -33,6 +43,8 @@ export const Registrar = () => {
             type='email'
             placeholder='Email de Registro'
             className='w-full mt-1 p-2 border rounded-lg bg-gray-200'
+            value={ email }
+            onChange={ e => setEmail(e.target.value) }
           />
         </div>
         {/* Password */}
@@ -46,6 +58,8 @@ export const Registrar = () => {
             type='password'
             placeholder='Password'
             className='w-full mt-1 p-2 border rounded-lg bg-gray-200'
+            value={ password }
+            onChange={ e => setPassword(e.target.value) }
           />
         </div>
         {/* Confirmar Password */}
@@ -59,6 +73,8 @@ export const Registrar = () => {
             type='password'
             placeholder='Confirmar Password'
             className='w-full mt-1 p-2 border rounded-lg bg-gray-200'
+            value={ repetirPassword }
+            onChange={ e => setRepetirPassword(e.target.value) }
           />
         </div>
 
