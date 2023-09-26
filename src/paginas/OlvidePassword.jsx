@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import clienteAxios from '../config/clienteAxios'
 import { Alerta } from '../components/Alerta'
 
 
@@ -9,7 +10,7 @@ export const OlvidePassword = () => {
   const [alerta, setAlerta] = useState({})
 
   const handleSubmit = async e => {
-    e.preventDefault
+    e.preventDefault();
     
     if(email === '' || email.length < 6) {
       setAlerta({
@@ -19,7 +20,20 @@ export const OlvidePassword = () => {
       return
     }
 
-    
+    try {
+      const { data } = await clienteAxios.post(`/usuarios/olvide-password`, { email })
+
+      setAlerta({
+          msg: data.msg,
+          error: false
+      })
+        
+    } catch (error) {
+      setAlerta({
+          msg: error.response.data.msg,
+          error: true
+      })
+    }
 
   }
 
