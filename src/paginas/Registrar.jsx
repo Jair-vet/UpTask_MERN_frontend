@@ -60,8 +60,21 @@ export const Registrar = () => {
       setTimeout(() => {
         setAlerta({})
       }, 3000)
+
+      // Regresar las celdas a su estado original
+      setNombre('')
+      setEmail('')
+      setPassword('')
+      setRepetirPassword('')
+
     } catch (error) {
-      console.log(error);
+      setAlerta({
+        msg: error.response.data.msg,
+        error: true
+      })
+      setTimeout(() => {
+        setAlerta({})
+      }, 3000)
     }
 
   }
