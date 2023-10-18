@@ -33,9 +33,11 @@ const AuthProvider = ({children}) => {
 
             } catch (error) {
                 setAuth({})
-            } 
 
-            setCargando(false)
+            } finally {
+                setCargando(false)
+            }
+
 
             
         }
@@ -46,7 +48,9 @@ const AuthProvider = ({children}) => {
     return(
         <AuthContext.Provider
             value={{
+                auth,
                 setAuth,
+                cargando,
             }}
         >
             {children}
