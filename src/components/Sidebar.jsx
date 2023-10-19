@@ -7,7 +7,7 @@ export const Sidebar = () => {
         <p className="text-xl font-bold text-white text-center">Bienvenido <span className="text-white">Jair</span></p>
         
         <Link 
-            to="/crear-proyecto"
+            to="crear-proyecto"
             className="bg-emerald-600 w-full p-3 text-white uppercase font-bold block text-center mt-5 rounded-lg"
         >Nuevo Proyecto
         </Link>
