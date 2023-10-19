@@ -10,6 +10,37 @@ const ProyectosProvider = ({children}) => {
 
     const mostrarAlerta = alerta => {
         setAlerta(alerta)
+
+        setTimeout(() => {
+            setAlerta({})
+        }, 4000)
+    }
+
+    const submitProyecto = async proyecto => {
+        try {
+            const token = localStorage.getItem('token')
+            if(!token) return
+
+            const config = {
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`
+                }
+            }
+
+            // Los parametro para POST 1.Url 2.Info 3.Configuración
+            const { data } = await clienteAxios.post('/proyectos', proyecto, config)
+            console.log(data);
+
+            setAlerta({
+                msg: 'Proyecto Creado Correctamente',
+                error: false
+            })
+
+        } catch (error) {
+            console.log(error);
+        }
+
     }
 
     return (
@@ -18,6 +49,7 @@ const ProyectosProvider = ({children}) => {
                 proyectos,
                 mostrarAlerta,
                 alerta,
+                submitProyecto,
             }}
         >
 
