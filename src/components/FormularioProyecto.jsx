@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import useProyectos from '../hooks/useProyectos'
+import { Alerta } from '../components/Alerta'
 
 export const FormularioProyecto = () => {
 
@@ -10,10 +11,38 @@ export const FormularioProyecto = () => {
   const [fechaEntrega, setFechaEntrega] = useState('')
   const [cliente, setCliente] = useState('')
 
+  const { mostrarAlerta, alerta /* submitProyecto, proyecto */ } = useProyectos();
 
+  const handleSubmit = e => {
+    e.preventDefault()
+
+    if([nombre, descripcion, fechaEntrega, cliente].includes('') ) {
+      mostrarAlerta({
+          msg: 'Todos los Campos son Obligatorios',
+          error: true
+      })
+      setTimeout(() => {
+        mostrarAlerta({
+          error: false
+      })
+      }, 2000)
+
+      return
+    }
+
+  }
+
+
+  const { msg } = alerta
 
   return (
-    <form className="bg-white py-10 px-5 md:w-1/2 rounded-lg shadow">
+    <form 
+      className="bg-white py-10 px-5 md:w-1/2 rounded-lg shadow"
+      onSubmit={handleSubmit}
+    >
+
+      {msg && <Alerta alerta={alerta} />}
+
       <div className='mb-5'>
        
         {/* Nombre */}
