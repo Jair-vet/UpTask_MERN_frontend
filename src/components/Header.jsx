@@ -17,7 +17,7 @@ export const Header = () => {
             <div className="flex items-center gap-4 md:mt-0 mt-6 justify-center">
                 <Link 
                     to="/proyectos"
-                    className="font-bold uppercase"
+                    className="font-bold p-3 uppercase hover:-translate-y-3 hover:bg-gray-200 duration-500 hover:rounded-md shadow-md"
                 >   Proyectos </Link>
 
                 <button
