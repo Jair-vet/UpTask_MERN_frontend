@@ -11,7 +11,7 @@ export const Sidebar = () => {
         
         <Link 
             to="crear-proyecto"
-            className="bg-emerald-600 w-full p-3 text-white uppercase font-bold block text-center mt-5 rounded-lg"
+            className="bg-emerald-600 hover:bg-emerald-700 duration-300 w-full p-3 text-white uppercase font-bold block text-center mt-5 rounded-lg"
         >Nuevo Proyecto
         </Link>
     

@@ -94,7 +94,7 @@ export const FormularioProyecto = () => {
       <input
         type='submit'
         value="Crear Proyecto"
-        className='bg-sky-400 w-full p-3 uppercase font-bold text-white rounded cursor-pointer hover:bg-sky-700'
+        className='bg-sky-600 w-full p-3 uppercase font-bold text-white rounded cursor-pointer hover:bg-sky-700 duration-300'
       /> 
 
     </form>
