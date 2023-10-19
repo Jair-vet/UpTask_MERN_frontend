@@ -11,9 +11,9 @@ export const FormularioProyecto = () => {
   const [fechaEntrega, setFechaEntrega] = useState('')
   const [cliente, setCliente] = useState('')
 
-  const { mostrarAlerta, alerta /* submitProyecto, proyecto */ } = useProyectos();
+  const { mostrarAlerta, alerta, submitProyecto, /* proyecto */ } = useProyectos();
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault()
 
     if([nombre, descripcion, fechaEntrega, cliente].includes('') ) {
@@ -21,14 +21,18 @@ export const FormularioProyecto = () => {
           msg: 'Todos los Campos son Obligatorios',
           error: true
       })
-      setTimeout(() => {
-        mostrarAlerta({
-          error: false
-      })
-      }, 2000)
 
       return
     }
+
+    // Pasar losDatos alProvider
+    await submitProyecto({ /* id, */ nombre, descripcion, fechaEntrega, cliente})
+
+    // setId(null)
+    setNombre('')
+    setDescripcion('')
+    setFechaEntrega('')
+    setCliente('')
 
   }
 
@@ -57,7 +61,7 @@ export const FormularioProyecto = () => {
           <input 
             id="nombre"
             type="text"
-            className="border w-full p-2 mt-1 placeholder-gray-400 rounded-md focus:outline-none focus:ring focus:ring-sky-300"
+            className="border-2 w-full p-2 mt-1 placeholder-gray-400 rounded-md focus:outline-none focus:ring focus:ring-sky-300"
             placeholder="Nombre del Proyecto"
             value={nombre}
             onChange={e => setNombre(e.target.value)}
@@ -75,7 +79,7 @@ export const FormularioProyecto = () => {
 
           <textarea 
             id="descripcion"
-            className="border w-full p-2 mt-1 placeholder-gray-400 rounded-md focus:outline-none focus:ring focus:ring-sky-300"
+            className="border-2 w-full p-2 mt-1 placeholder-gray-400 rounded-md focus:outline-none focus:ring focus:ring-sky-300"
             placeholder="Descripcion del Proyecto"
             value={descripcion}
             onChange={e => setDescripcion(e.target.value)}
@@ -94,7 +98,7 @@ export const FormularioProyecto = () => {
           <input 
             id="fecha-entrega"
             type="date"
-            className="border w-full p-2 mt-1 placeholder-gray-400 rounded-md focus:outline-none focus:ring focus:ring-sky-300"
+            className="border-2 w-full p-2 mt-1 placeholder-gray-400 rounded-md focus:outline-none focus:ring focus:ring-sky-300"
             value={fechaEntrega}
             onChange={e => setFechaEntrega(e.target.value)}
           />
@@ -112,7 +116,7 @@ export const FormularioProyecto = () => {
           <input 
             id="cliente"
             type="text"
-            className="border w-full p-2 mt-1 placeholder-gray-400 rounded-md focus:outline-none focus:ring focus:ring-sky-300"
+            className="border-2 w-full p-2 mt-1 placeholder-gray-400 rounded-md focus:outline-none focus:ring focus:ring-sky-300"
             placeholder="Nombre del CrearCliente"
             value={cliente}
             onChange={e => setCliente(e.target.value)}
