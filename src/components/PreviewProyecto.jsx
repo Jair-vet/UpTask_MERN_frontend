@@ -8,9 +8,9 @@ export const PreviewProyecto = ({ proyecto }) => {
     const { nombre, _id, cliente, creador} = proyecto
 
   return (
-        <div className='border-b p-5 flex flex-col md:flex-row justify-between duration-150 hover:bg-gray-200'>
+        <div className='border-b p-5 flex flex-col md:flex-row justify-between duration-150 rounded-sm hover:bg-gray-200'>
 
-            <div className='flex items-center gap-2'>
+            <div className='flex items-center gap-2 text-center text-lg'>
                 <p className='flex-1'>
                     {nombre}
 
@@ -26,7 +26,7 @@ export const PreviewProyecto = ({ proyecto }) => {
 
             <Link
                 to={`${_id}`}
-                className='text-gray-600 text-center shadow-xl p-3 duration-300 hover:rounded-md hover:bg-emerald-600 hover:text-white hover:shadow-none uppercase text-sm font-bold'
+                className='text-gray-600 md:mt-0 mt-4 text-center md:shadow-xl p-3 duration-300 hover:rounded-md hover:bg-emerald-600 hover:text-white hover:shadow-none uppercase text-sm font-bold'
             >Ver Proyecto</Link>
         </div>
     )

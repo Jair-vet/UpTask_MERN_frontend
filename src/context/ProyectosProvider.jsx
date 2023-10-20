@@ -57,6 +57,9 @@ const ProyectosProvider = ({children}) => {
 
             // Los parametro para POST 1.Url 2.Info 3.Configuración
             const { data } = await clienteAxios.post('/proyectos', proyecto, config)
+            
+            // una copia y agregamos el nuevo registro
+            setProyectos([...proyectos, data])
 
             setAlerta({
                 msg: 'Proyecto Creado Correctamente',
