@@ -19,6 +19,23 @@ const ModalFormularioTarea = () => {
 
     const { modalFormularioTarea, handleModalTarea, mostrarAlerta, alerta, submitTarea, tarea } = useProyectos();
 
+    useEffect(() => {
+        if(tarea?._id) {
+            setId(tarea._id)
+            setNombre(tarea.nombre)
+            setDescripcion(tarea.descripcion)
+            setFechaEntrega(tarea.fechaEntrega?.split('T')[0])
+            setPrioridad(tarea.prioridad)
+            return
+        } 
+        setId('')
+        setNombre('')
+        setDescripcion('')
+        setFechaEntrega('')
+        setPrioridad('')
+        
+    }, [tarea]);
+
     const handleSubmit = async e => {
         e.preventDefault();
 
@@ -29,6 +46,15 @@ const ModalFormularioTarea = () => {
             })
             return
         }
+
+        await submitTarea({ id, nombre, descripcion, fechaEntrega, prioridad, proyecto: params.id})
+
+        setId('')
+        setNombre('')
+        setDescripcion('')
+        setFechaEntrega('')
+        setPrioridad('')
+
     }
 
 

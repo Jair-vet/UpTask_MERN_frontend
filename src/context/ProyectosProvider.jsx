@@ -188,6 +188,71 @@ const ProyectosProvider = ({children}) => {
         setModalFormularioTarea(!modalFormularioTarea)
     }
 
+    const submitTarea = async tarea => {
+        try {
+
+            if(tarea?.id) {
+                await editarTarea(tarea)
+            } else {
+                await crearTarea(tarea)
+            }
+
+
+        } catch (error) {
+            
+        }
+    }
+
+    const crearTarea = async tarea => {
+        try {
+            const token = localStorage.getItem('token')
+            if(!token) return
+
+            const config = {
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`
+                }
+            }
+
+            const { data } = await clienteAxios.post('/tareas', tarea, config)
+
+            setAlerta({})
+            setModalFormularioTarea(false)
+
+            // SOCKET IO
+            socket.emit('nueva tarea', data)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    const editarTarea = async tarea => {
+        try {
+            const token = localStorage.getItem('token')
+            if(!token) return
+
+            const config = {
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`
+                }
+            }
+
+            const { data } = await clienteAxios.put(`/tareas/${tarea.id}`, tarea, config)
+            
+            setAlerta({})
+            setModalFormularioTarea(false)
+
+            // SOCKET
+            socket.emit('actualizar tarea', data)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+
+
     return (
         <ProyectosContext.Provider
             value={{
@@ -203,6 +268,10 @@ const ProyectosProvider = ({children}) => {
                 eliminarProyecto,
                 modalFormularioTarea,
                 handleModalTarea,
+                submitTarea,
+                crearTarea,
+                editarTarea,
+
             }}
         >
 
