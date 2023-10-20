@@ -7,7 +7,7 @@ export const Proyecto = () => {
 
     const params = useParams()
 
-    const { obtenerProyecto, proyecto, cargando } = useProyectos()
+    const { obtenerProyecto, proyecto, cargando, handleModalTarea } = useProyectos()
 
     const [modal, setModal] = useState(false)
 
@@ -39,7 +39,7 @@ export const Proyecto = () => {
 
         
         <button
-            onClick={() => setModal(true)}
+            onClick={ handleModalTarea }
             type='button'
             className='flex gap-2 item-center justify-center text-md mt-5 px-5 py-3 w-full md:w-auto rounded-lg uppercase font-bold bg-sky-600 hover:bg-sky-700 duration-300 text-white text-center'
         >

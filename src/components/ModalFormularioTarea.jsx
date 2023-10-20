@@ -2,7 +2,10 @@ import { Fragment, useState, useEffect } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import useProyectos from '../hooks/useProyectos'
 import { useParams } from 'react-router-dom'
+import { Alerta } from '../components/Alerta'
 
+
+const PRIORIDAD = ['Baja', 'Media', 'Alta']
 
 const ModalFormularioTarea = () => {
 
@@ -18,7 +21,18 @@ const ModalFormularioTarea = () => {
 
     const handleSubmit = async e => {
         e.preventDefault();
+
+        if([nombre, descripcion, fechaEntrega, prioridad].includes('') ) {
+            mostrarAlerta({
+                msg: 'Todos los campos son obligatorios',
+                error: true
+            })
+            return
+        }
     }
+
+
+    const { msg } = alerta
  
     return (
         <Transition.Root show={ modalFormularioTarea } as={Fragment}>
@@ -58,7 +72,7 @@ const ModalFormularioTarea = () => {
                             <div className="hidden sm:block absolute top-0 right-0 pt-4 pr-4">
                                 <button
                                     type="button"
-                                    className="bg-white rounded-md text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                                    className="bg-white rounded-md text-red-500 hover:text-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
                                     onClick={ handleModalTarea }
                                 >
                                 <span className="sr-only">Cerrar</span>
@@ -72,9 +86,11 @@ const ModalFormularioTarea = () => {
                             <div className="sm:flex sm:items-start">
                                 <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left w-full">
                                     <Dialog.Title as="h3" className="text-lg leading-6 font-bold text-gray-900">
-                                        <h1 className="text-4xl">Crear Tarea</h1>
+                                        <p className="text-3xl mb-5 text-center text-gray-400 font-extrabold uppercase">Crear Tarea</p>
                                     </Dialog.Title>
                                     
+                                    { msg && <Alerta alerta={alerta}/> }
+
                                     <form 
                                         onSubmit={handleSubmit}
                                         className='my-10'
@@ -147,9 +163,9 @@ const ModalFormularioTarea = () => {
                                             >
                                                 <option value="">-- Seleccionar --</option>
 
-                                                {/* {PRIORIDAD.map( opcion => (
+                                                {PRIORIDAD.map( opcion => (
                                                     <option key={opcion}>{opcion}</option>
-                                                ))} */}
+                                                ))}
 
                                             </select>
                                         </div>
