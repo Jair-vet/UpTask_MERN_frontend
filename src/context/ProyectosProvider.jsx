@@ -184,6 +184,10 @@ const ProyectosProvider = ({children}) => {
         }
     }
 
+    const handleModalTarea = () => {
+        setModalFormularioTarea(!modalFormularioTarea)
+    }
+
     return (
         <ProyectosContext.Provider
             value={{
@@ -197,6 +201,8 @@ const ProyectosProvider = ({children}) => {
                 editarProyecto,
                 nuevoProyecto,
                 eliminarProyecto,
+                modalFormularioTarea,
+                handleModalTarea,
             }}
         >
 
