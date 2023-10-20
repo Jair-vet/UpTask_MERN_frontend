@@ -6,8 +6,17 @@ const ProyectosContext = createContext()
 
 const ProyectosProvider = ({children}) => {
 
-    const [proyectos, setProyectos] = useState([])
-    const [alerta, setAlerta] = useState({})
+    const [proyectos, setProyectos] = useState([]);
+    const [alerta, setAlerta] = useState({});
+    const [proyecto, setProyecto] = useState({});
+    const [cargando, setCargando] = useState(false);
+    const [ modalFormularioTarea, setModalFormularioTarea ] = useState(false)
+    const [ tarea, setTarea] = useState({})
+    const [ modalEliminarTarea, setModalEliminarTarea ] = useState(false)
+    const [ colaborador, setColaborador] = useState({})
+    const [ modalEliminarColaborador, setModalEliminarColaborador] = useState(false)
+    const [ buscador, setBuscador] = useState(false)
+
 
     const navigate = useNavigate()
 
@@ -76,6 +85,36 @@ const ProyectosProvider = ({children}) => {
 
     }
 
+    const obtenerProyecto = async id => {
+        setCargando(true)
+        try {
+            const token = localStorage.getItem('token')
+            if(!token) return
+
+            const config = {
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`
+                }
+            }
+
+            const { data } = await clienteAxios(`/proyectos/${id}`, config )
+            setProyecto(data)
+            setAlerta({})
+        } catch (error) {
+            navigate('/proyectos')
+            setAlerta({
+                msg: error.response.data.msg,
+                error: true
+            })
+            setTimeout(() => {
+                setAlerta({})
+            }, 3000);
+        } finally {
+            setCargando(false)
+        }
+    }
+
     return (
         <ProyectosContext.Provider
             value={{
@@ -83,6 +122,9 @@ const ProyectosProvider = ({children}) => {
                 mostrarAlerta,
                 alerta,
                 submitProyecto,
+                obtenerProyecto,
+                proyecto,
+                cargando,
             }}
         >
 
