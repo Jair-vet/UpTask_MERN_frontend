@@ -18,7 +18,7 @@ export const RutaProtegida = () => {
                     <div className="md:flex md:min-h-screen">
                         <Sidebar />
 
-                        <main className="p-10 flex-1 bg-gray-300">
+                        <main className="p-10 flex-1 bg-gray-300 h-screen">
                             <Outlet />
                         </main>
                     </div>
