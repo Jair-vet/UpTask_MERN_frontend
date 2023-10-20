@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import useProyectos from '../hooks/useProyectos';
 import ModalFormularioTarea from '../components/ModalFormularioTarea';
+import { Tarea } from '../components/Tarea';
 
 export const Proyecto = () => {
 
@@ -16,6 +17,8 @@ export const Proyecto = () => {
     }, [])
 
     const { nombre } = proyecto
+
+
 
     if(cargando) return 'Cargando...'
     
@@ -48,6 +51,21 @@ export const Proyecto = () => {
             </svg>
             Nueva Tarea
         </button>
+
+
+        <p className='font-bold text-xl mt-10'>Tareas del Proyecto</p>
+
+        <div className="bg-white shadow mt-10 rounded-lg">
+            {proyecto.tareas?.length 
+                ? proyecto.tareas?.map(tarea => {
+                    <Tarea 
+                        key={tarea._id}
+                        tarea={tarea}
+                    />
+                })
+                : <p className='text-center my-5 p-10'>No hay tareas en este Proyecto</p>
+            }
+        </div>
 
         <ModalFormularioTarea 
             modal={modal}
