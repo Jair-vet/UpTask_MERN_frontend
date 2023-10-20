@@ -16,7 +16,7 @@ export const FormularioProyecto = () => {
 
   useEffect(() => {
     if( params.id ) {
-      // setId(proyecto._id)
+      setId(proyecto._id)
       setNombre(proyecto.nombre)
       setDescripcion(proyecto.descripcion)
       setFechaEntrega(proyecto.fechaEntrega?.split('T')[0])
@@ -36,10 +36,10 @@ export const FormularioProyecto = () => {
       return
     }
 
-    // Pasar losDatos alProvider
-    await submitProyecto({ /* id, */ nombre, descripcion, fechaEntrega, cliente})
+    // Pasar los Datos alProvider
+    await submitProyecto({ id, nombre, descripcion, fechaEntrega, cliente})
 
-    // setId(null)
+    setId(null)
     setNombre('')
     setDescripcion('')
     setFechaEntrega('')
@@ -137,7 +137,7 @@ export const FormularioProyecto = () => {
 
       <input
         type='submit'
-        value="Crear Proyecto"
+        value={id ? 'Actualizar Proyecto' : 'Crear Proyecto'}
         className='bg-sky-600 w-full p-3 uppercase font-bold text-white rounded cursor-pointer hover:bg-sky-700 duration-300'
       /> 
 
