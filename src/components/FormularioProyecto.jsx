@@ -11,7 +11,18 @@ export const FormularioProyecto = () => {
   const [fechaEntrega, setFechaEntrega] = useState('')
   const [cliente, setCliente] = useState('')
 
-  const { mostrarAlerta, alerta, submitProyecto, /* proyecto */ } = useProyectos();
+  const params = useParams()
+  const { mostrarAlerta, alerta, submitProyecto, proyecto } = useProyectos();
+
+  useEffect(() => {
+    if( params.id ) {
+      // setId(proyecto._id)
+      setNombre(proyecto.nombre)
+      setDescripcion(proyecto.descripcion)
+      setFechaEntrega(proyecto.fechaEntrega?.split('T')[0])
+      setCliente(proyecto.cliente)
+    } 
+  }, [params])
 
   const handleSubmit = async e => {
     e.preventDefault()
