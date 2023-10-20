@@ -52,9 +52,21 @@ export const FormularioProyecto = () => {
 
   return (
     <form 
-      className="bg-white py-10 px-5 md:w-1/2 rounded-lg shadow"
+      className="bg-white py-7 px-5 md:w-1/2 rounded-lg shadow"
       onSubmit={handleSubmit}
     >
+      
+      {
+        id ? (
+          <div className="p-3">
+            <p className="text-3xl mb-5 text-center text-gray-400 font-extrabold uppercase">Actualizar Proyecto</p>
+          </div>
+        ) : (
+          <div className="p-3">
+            <p className="text-3xl mb-5 text-center text-gray-400 font-extrabold uppercase">Crear un Proyecto</p>
+          </div>
+        )
+      }
 
       {msg && <Alerta alerta={alerta} />}
 
