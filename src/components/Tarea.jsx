@@ -1,13 +1,16 @@
 import { formatearFecha } from "../helpers/formatearFecha"
+import useProyectos from "../hooks/useProyectos"
 
 export const Tarea = ({ tarea }) => {
 
-    const { descripcion, nombre, prioridad, fechaEntrega, estado, id } = tarea
+    const { handleModalEditarTarea /* handleModalEliminarTarea, completarTarea  */} = useProyectos()
+    const { descripcion, nombre, prioridad, fechaEntrega, estado, _id } = tarea;
+
 
   return (
     <div className="border-b p-5 flex justify-between items-center">
        {/* Información de la Tarea */}
-        <div>
+        <div className="flex flex-col  items-start">
             <p className="mb-1 text-xl">{nombre}</p>
             <p className="mb-1 text-sm text-gray-500 uppercase">{descripcion}</p>
             <p className="mb-1 text-xl">{ formatearFecha(fechaEntrega)}</p>
@@ -17,17 +20,18 @@ export const Tarea = ({ tarea }) => {
         {/* Botones Acciones */}
         <div className="flex gap-2">
             <button
-                className="bg-purple-600 px-4 py-3 text-white uppercase font-bold text-sm rounded-lg"
+                className="bg-indigo-600 px-4 py-3 text-white uppercase font-bold text-sm rounded-lg"
+                onClick={() => handleModalEditarTarea(tarea)}
             >Editar</button>
 
             { estado 
                 ? (
                     <button
-                        className="bg-green-600 px-4 py-3 text-white uppercase font-bold text-sm rounded-lg"
+                        className="bg-sky-600 px-4 py-3 text-white uppercase font-bold text-sm rounded-lg"
                     >Completa</button>
                 ) : (
                     <button
-                        className="bg-yellow-600 px-4 py-3 text-white uppercase font-bold text-sm rounded-lg"
+                        className="bg-gray-600 px-4 py-3 text-white uppercase font-bold text-sm rounded-lg"
                     >Incompleta</button>
                 )
             }

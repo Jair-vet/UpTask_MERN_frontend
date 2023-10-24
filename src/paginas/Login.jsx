@@ -12,9 +12,6 @@ export const Login = () => {
 
   const { auth, setAuth, cargando } = useAuth();
 
-  console.log(auth);
-  console.log(cargando);
-
   const navigate = useNavigate()
 
   const handleSubmit = async e => {

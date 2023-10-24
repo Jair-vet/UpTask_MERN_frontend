@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import useProyectos from '../hooks/useProyectos';
 import ModalFormularioTarea from '../components/ModalFormularioTarea';
@@ -7,19 +7,13 @@ import { Tarea } from '../components/Tarea';
 export const Proyecto = () => {
 
     const params = useParams()
-
     const { obtenerProyecto, proyecto, cargando, handleModalTarea } = useProyectos()
-
-    const [modal, setModal] = useState(false)
 
     useEffect(() => {
         obtenerProyecto(params.id)
     }, [])
 
     const { nombre } = proyecto
-
-
-
     if(cargando) return 'Cargando...'
     
   return (
@@ -44,7 +38,7 @@ export const Proyecto = () => {
         <button
             onClick={ handleModalTarea }
             type='button'
-            className='flex gap-2 item-center justify-center text-md mt-5 px-5 py-3 w-full md:w-auto rounded-lg uppercase font-bold bg-sky-600 hover:bg-sky-700 duration-300 text-white text-center'
+            className='flex gap-2 item-center justify-center text-md mt-5 px-5 py-3 w-full md:w-auto rounded-lg uppercase font-bold bg-sky-400 hover:bg-sky-500 duration-300 text-white text-center'
         >
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -55,22 +49,19 @@ export const Proyecto = () => {
 
         <p className='font-bold text-xl mt-10'>Tareas del Proyecto</p>
 
-        <div className="bg-white shadow mt-10 rounded-lg">
-            {proyecto.tareas?.length 
-                ? proyecto.tareas?.map(tarea => {
-                    <Tarea 
-                        key={tarea._id}
-                        tarea={tarea}
-                    />
-                })
-                : <p className='text-center my-5 p-10'>No hay tareas en este Proyecto</p>
-            }
+        <div className='bg-white shadow mt-10 rounded-lg'>
+            {proyecto.tareas?.length ? 
+                proyecto.tareas?.map( (tarea) => (
+                <Tarea 
+                    key={tarea._id}
+                    tarea={tarea}
+                />
+                )) : 
+            <p className='text-center my-5 p-10'>No hay tareas en este proyecto</p>}
         </div>
+            
 
-        <ModalFormularioTarea 
-            modal={modal}
-            setModal={setModal}
-        />
+        <ModalFormularioTarea />
 
     </>
   )
