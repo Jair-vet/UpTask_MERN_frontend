@@ -8,7 +8,7 @@ export const Tarea = ({ tarea }) => {
 
 
   return (
-    <div className="border-b p-5 flex justify-between items-center">
+    <div className="border-b p-5 flex md:flex-row flex-col justify-between items-center ">
        {/* Información de la Tarea */}
         <div className="flex flex-col  items-start">
             <p className="mb-1 text-xl">{nombre}</p>
@@ -18,9 +18,9 @@ export const Tarea = ({ tarea }) => {
         </div>
 
         {/* Botones Acciones */}
-        <div className="flex gap-2">
+        <div className="flex md:flex-row flex-col gap-2">
             <button
-                className="bg-indigo-600 px-4 py-3 text-white uppercase font-bold text-sm rounded-lg"
+                className="bg-indigo-500 duration-300 hover:bg-indigo-700 px-4 py-3 text-white uppercase font-bold text-sm rounded-lg"
                 onClick={() => handleModalEditarTarea(tarea)}
             >Editar</button>
 
@@ -31,13 +31,13 @@ export const Tarea = ({ tarea }) => {
                     >Completa</button>
                 ) : (
                     <button
-                        className="bg-gray-600 px-4 py-3 text-white uppercase font-bold text-sm rounded-lg"
+                        className="bg-gray-500 duration-300 hover:bg-gray-700 px-4 py-3 text-white uppercase font-bold text-sm rounded-lg"
                     >Incompleta</button>
                 )
             }
             
             <button
-                className="bg-red-600 px-4 py-3 text-white uppercase font-bold text-sm rounded-lg"
+                className="bg-red-500 duration-300 hover:bg-red-700 px-4 py-3 text-white uppercase font-bold text-sm rounded-lg"
             >Eliminar</button>
 
         </div>
