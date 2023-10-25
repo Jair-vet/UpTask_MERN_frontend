@@ -76,9 +76,10 @@ export const Proyecto = () => {
                 )) : 
             <p className='text-center my-5 p-10'>No hay tareas en este proyecto</p>}
         </div>
+
         {/* Colaboradores */}        
         <div className='flex md:flex-row flex-col items-center justify-between mt-10'>
-            <p className="text-3xl mt-7  text-gray-500 font-extrabold uppercase">Colaboradores</p>
+            <p className="text-3xl mt-7 text-gray-500 font-extrabold uppercase">Colaboradores</p>
             <div className='md:w-[60px] w-full text-gray-500 rounded-md hover:text-indigo-600 md:mt-0 mt-7 md:border-none duration-300 md:p-0 p-2 border-2 border-gray-300 hover:border-indigo-600'>
                 <Link
                     to={`/proyectos/nuevo-colaborador/${proyecto._id}`}
