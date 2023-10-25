@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom'
 import useProyectos from '../hooks/useProyectos';
 import ModalFormularioTarea from '../components/ModalFormularioTarea';
 import { Tarea } from '../components/Tarea';
+import ModalEliminarTarea from '../components/ModalEliminarTarea';
 
 export const Proyecto = () => {
 
@@ -62,6 +63,7 @@ export const Proyecto = () => {
             
 
         <ModalFormularioTarea />
+        <ModalEliminarTarea />
 
     </>
   )
