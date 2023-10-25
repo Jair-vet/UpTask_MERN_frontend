@@ -22,18 +22,25 @@ export const Proyecto = () => {
     
   return (
     <>
-        <div className='flex justify-between'>
+        <div className='flex md:justify-between md:flex-row flex-col justify-center items-center'>
             <h1 className='font-black text-4xl'>{nombre}</h1>
 
-            <div className='flex items-center gap-2 text-gray-500 hover:text-emerald-600'>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
-                </svg>
+            <div className='md:w-[60px] w-full text-gray-500 rounded-md hover:text-emerald-600 md:mt-0 mt-7 md:border-none duration-300 md:p-0 p-2 border-2 border-gray-300 hover:border-emerald-600'>
 
+                {/* Boton Editar */}
                 <Link
                     to={`/proyectos/editar/${params.id}`}
-                    className='uppercase font-bold'
-                >Editar</Link>
+                    className='uppercase font-bold flex gap-2 w-full justify-center'
+                >
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
+                    </svg>
+
+                </div>
+                    Editar
+                </Link>
+
             </div>
         </div>
 
@@ -50,7 +57,7 @@ export const Proyecto = () => {
         </button>
 
 
-        <p className='font-bold text-xl mt-10'>Tareas del Proyecto</p>
+        <p className='text-3xl mt-7 md:text-left text-center text-gray-500 font-extrabold uppercase'>Tareas del Proyecto</p>
         
         {/* Mensaje de Alerta */}
         <div className="flex justify-center ">
@@ -68,6 +75,24 @@ export const Proyecto = () => {
                 />
                 )) : 
             <p className='text-center my-5 p-10'>No hay tareas en este proyecto</p>}
+        </div>
+        {/* Colaboradores */}        
+        <div className='flex md:flex-row flex-col items-center justify-between mt-10'>
+            <p className="text-3xl mt-7  text-gray-500 font-extrabold uppercase">Colaboradores</p>
+            <div className='md:w-[60px] w-full text-gray-500 rounded-md hover:text-indigo-600 md:mt-0 mt-7 md:border-none duration-300 md:p-0 p-2 border-2 border-gray-300 hover:border-indigo-600'>
+                <Link
+                    to={`/proyectos/nuevo-colaborador/${proyecto._id}`}
+                    className='uppercase font-bold flex gap-2 w-full justify-center'
+                >
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
+                    </svg>
+
+                </div>
+                    Añadir
+                </Link>
+            </div>
         </div>
             
 
