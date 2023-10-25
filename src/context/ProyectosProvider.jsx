@@ -16,7 +16,7 @@ const ProyectosProvider = ({children}) => {
     const [cargando, setCargando] = useState(false);
     const [ modalFormularioTarea, setModalFormularioTarea ] = useState(false)
     const [ tarea, setTarea] = useState({})
-    // const [ modalEliminarTarea, setModalEliminarTarea ] = useState(false)
+    const [ modalEliminarTarea, setModalEliminarTarea ] = useState(false)
     // const [ colaborador, setColaborador] = useState({})
     // const [ modalEliminarColaborador, setModalEliminarColaborador] = useState(false)
     // const [ buscador, setBuscador] = useState(false)
@@ -266,6 +266,11 @@ const ProyectosProvider = ({children}) => {
         setModalFormularioTarea(true)
     }
 
+    const handleModalEliminarTarea = tarea => {
+        setTarea(tarea)
+        setModalEliminarTarea(!modalEliminarTarea)
+    }
+
 
 
     return (
@@ -288,6 +293,8 @@ const ProyectosProvider = ({children}) => {
                 editarTarea,
                 handleModalEditarTarea,
                 tarea,
+                modalEliminarTarea,
+                handleModalEliminarTarea,
 
             }}
         >
