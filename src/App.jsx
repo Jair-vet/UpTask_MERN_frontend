@@ -14,7 +14,8 @@ import { NuevoProyecto } from './paginas/NuevoProyecto'
 import { ProyectosProvider } from './context/ProyectosProvider'
 import { Proyecto } from './paginas/Proyecto'
 import { EditarProyecto } from './paginas/EditarProyecto'
-import { NuevoColaborador } from './components/NuevoColaborador'
+import { NuevoColaborador } from './paginas/NuevoColaborador'
+
 
 
 function App() {
