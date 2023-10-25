@@ -10,10 +10,10 @@ export const Tarea = ({ tarea }) => {
   return (
     <div className="border-b p-5 flex md:flex-row flex-col justify-between items-center ">
        {/* Información de la Tarea */}
-        <div className="flex flex-col  items-start">
+        <div className="flex flex-col text-center md:items-start">
             <p className="mb-1 text-xl">{nombre}</p>
             <p className="mb-1 text-sm text-gray-500 uppercase">{descripcion}</p>
-            <p className="mb-1 text-xl">{ formatearFecha(fechaEntrega)}</p>
+            <p className="mb-1 text-sm">{ formatearFecha(fechaEntrega)}</p>
             <p className="mb-1 text-gray-600">Prioridad: {prioridad}</p>
         </div>
 

@@ -190,7 +190,7 @@ const ProyectosProvider = ({children}) => {
 
     const handleModalTarea = () => {
         setModalFormularioTarea(!modalFormularioTarea)
-        // setTarea({})
+        setTarea({})
     }
 
     const submitTarea = async (tarea) => {
@@ -249,15 +249,13 @@ const ProyectosProvider = ({children}) => {
             
             // Sincronizar el state
             const proyectoActualizado = { ...proyecto }
-            proyectoActualizado.tareas = proyectoActualizado.tarea.map( tareaState => tareaState._id === data._id ? data : tareaState ) 
+            proyectoActualizado.tareas = proyectoActualizado.tareas.map( tareaState => tareaState._id === data._id ? data : tareaState ) 
             
             setProyectos(proyectoActualizado)
 
             setAlerta({})
             setModalFormularioTarea(false)
 
-            // SOCKET
-            // socket.emit('actualizar tarea', data)
         } catch (error) {
             console.log(error)
         }
