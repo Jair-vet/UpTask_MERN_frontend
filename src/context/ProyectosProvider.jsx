@@ -290,20 +290,18 @@ const ProyectosProvider = ({children}) => {
                 error: false
             })
 
-            setModalEliminarTarea(false)
 
+            // Sincronizar el state
+            const proyectoActualizado = {...proyecto}
+            proyectoActualizado.tareas = proyectoActualizado.tareas.filter(tareasState => tareasState !== tarea._id )
+            
+            setProyecto(proyectoActualizado)
+            setModalEliminarTarea(false)
             setTarea({})
+
             setTimeout(() => {
                 setAlerta({})
             }, 3000 )
-
-            // Sincronizar el state
-            const proyectoActualizado = { ...proyecto }
-            proyectoActualizado.tareas = proyectoActualizado.tareas.filter(tareasState => tareasState !== tarea._id )
-            
-            setProyectos(proyectoActualizado)
-            setModalEliminarTarea(false)
-            setTarea({})
 
         } catch (error) {
             console.log(error)

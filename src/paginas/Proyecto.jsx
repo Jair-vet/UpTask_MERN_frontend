@@ -51,8 +51,13 @@ export const Proyecto = () => {
 
 
         <p className='font-bold text-xl mt-10'>Tareas del Proyecto</p>
-
-        { msg && <Alerta alerta={alerta}/> }
+        
+        {/* Mensaje de Alerta */}
+        <div className="flex justify-center ">
+            <div className='w-full md:w-1/3 lg:w-1/4'>
+                { msg && <Alerta alerta={alerta}/> }
+            </div>
+        </div>
 
         <div className='bg-white overflow-auto shadow mt-10 rounded-lg'>
             {proyecto.tareas?.length ? 

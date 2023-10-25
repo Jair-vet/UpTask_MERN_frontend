@@ -3,7 +3,7 @@ import useProyectos from "../hooks/useProyectos"
 
 export const Tarea = ({ tarea }) => {
 
-    const { handleModalEditarTarea, handleModalEliminarTarea, /* completarTarea */ } = useProyectos()
+    const { handleModalEditarTarea, handleModalEliminarTarea } = useProyectos()
     const { descripcion, nombre, prioridad, fechaEntrega, estado, _id } = tarea;
 
 
