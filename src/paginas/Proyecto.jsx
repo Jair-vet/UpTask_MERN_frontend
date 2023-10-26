@@ -27,7 +27,6 @@ export const Proyecto = () => {
     const { msg } = alerta
     
   return (
-    msg && alerta.error ? <Alerta alerta={alerta} /> : (
         <>
             <div className='flex md:justify-between md:flex-row flex-col justify-center items-center'>
                 <h1 className='font-black text-4xl'>{nombre}</h1>
@@ -72,11 +71,11 @@ export const Proyecto = () => {
             <p className='text-3xl mt-7 md:text-left text-center text-gray-500 font-extrabold uppercase'>Tareas del Proyecto</p>
             
             {/* Mensaje de Alerta */}
-            <div className="flex justify-center ">
+            {/* <div className="flex justify-center ">
                 <div className='w-full md:w-1/3 lg:w-1/4'>
                     { msg && <Alerta alerta={alerta}/> }
                 </div>
-            </div>
+            </div> */}
 
             <div className='bg-white overflow-auto shadow mt-10 rounded-lg'>
                 {proyecto.tareas?.length ? 
@@ -130,5 +129,4 @@ export const Proyecto = () => {
 
         </>
     )
-  )
 }
