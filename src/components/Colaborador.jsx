@@ -17,7 +17,7 @@ export const Colaborador = ({colaborador}) => {
                 type="button"
                 className="duration-300 bg-red-500 hover:bg-red-700 px-4 py-3 text-white uppercase font-bold text-sm rounded-lg"
                 onClick={() => handleModalEliminarColaborador(colaborador)}
-            >Eliminar</button>
+            >Delete</button>
         </div>
     </div>
   )

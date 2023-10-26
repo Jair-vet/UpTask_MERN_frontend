@@ -9,7 +9,7 @@ export const Header = () => {
             <div className="flex justify-center">
                 <input 
                     type="search"
-                    placeholder="Buscar Proyecto"
+                    placeholder="Search Projects"
                     className="rounded-lg lg:w-96 block p-2 border"
                 />
             </div>
@@ -18,12 +18,12 @@ export const Header = () => {
                 <Link 
                     to="/proyectos"
                     className="font-bold p-3 uppercase hover:-translate-y-3 hover:bg-gray-200 duration-500 hover:rounded-md shadow-md"
-                >   Proyectos </Link>
+                >   Projects </Link>
 
                 <button
                     type="button"
                     className="text-white text-sm bg-sky-600 hover:bg-sky-700 duration-300 p-3 rounded-md uppercase font-bold"
-                >Cerrar Sesión</button>
+                >Sign off</button>
             </div>
         </div>
     </header>

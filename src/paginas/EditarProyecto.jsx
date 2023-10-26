@@ -22,7 +22,7 @@ export const EditarProyecto = () => {
 
     const { nombre } = proyecto
 
-    if(cargando) return 'Cargando...'
+    if(cargando) return 'Load...'
 
   return (
     <>
@@ -37,7 +37,7 @@ export const EditarProyecto = () => {
 
                 <button
                     onClick={handleClick}
-                >Eliminar</button>
+                >Delete</button>
             </div>
         </div>
         

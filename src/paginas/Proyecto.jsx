@@ -46,7 +46,7 @@ export const Proyecto = () => {
                             </svg>
 
                         </div>
-                            Editar
+                            Edit
                         </Link>
 
                     </div>
@@ -63,12 +63,12 @@ export const Proyecto = () => {
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
-                    Nueva Tarea
+                    New Task
                 </button>
             )}
 
 
-            <p className='text-3xl mt-7 md:text-left text-center text-gray-500 font-extrabold uppercase'>Tareas del Proyecto</p>
+            <p className='text-3xl mt-7 md:text-left text-center text-gray-500 font-extrabold uppercase'>Project Tasks</p>
             
             {/* Mensaje de Alerta */}
             {/* <div className="flex justify-center ">
@@ -85,14 +85,14 @@ export const Proyecto = () => {
                         tarea={tarea}
                     />
                     )) : 
-                <p className='text-center my-5 p-10'>No hay tareas en este proyecto</p>}
+                <p className='text-center my-5 p-10'>There are not tasks in this project</p>}
             </div>
 
             {/* Colaboradores */}  
             { admin && (
                 <>
                     <div className='flex md:flex-row flex-col items-center justify-between mt-10'>
-                        <p className="text-3xl mt-7 text-gray-500 font-extrabold uppercase">Colaboradores</p>
+                        <p className="text-3xl mt-7 text-gray-500 font-extrabold uppercase">Collaboratos</p>
                         <div className='md:w-[60px] w-full text-gray-500 rounded-md hover:text-indigo-600 md:mt-0 mt-7 md:border-none duration-300 md:p-0 p-2 border-2 border-gray-300 hover:border-indigo-600'>
                             <Link
                                 to={`/proyectos/nuevo-colaborador/${proyecto._id}`}
@@ -104,7 +104,7 @@ export const Proyecto = () => {
                                 </svg>
 
                             </div>
-                                Añadir
+                                Add
                             </Link>
                         </div>
 
@@ -117,7 +117,7 @@ export const Proyecto = () => {
                                     colaborador={colaborador}
                                 />
                             )) : 
-                        <p className='text-center my-5 p-10'>No hay Colaboradores en este proyecto</p>}
+                        <p className='text-center my-5 p-10'>There are not collaborators in this project</p>}
                     </div>
                 </>
             )}      

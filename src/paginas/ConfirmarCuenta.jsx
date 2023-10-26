@@ -39,8 +39,8 @@ export const ConfirmarCuenta = () => {
 
   return (
     <>
-      <h1 className="text-center text-sky-600 font-black text-5xl capitalize">Confirma tu cuenta y comienza a crear Tus
-        <span className='text-slate-700'> Proyectos</span> 
+      <h1 className="text-center text-sky-600 font-black text-5xl capitalize">Confirm your account and start creating yours
+        <span className='text-slate-700'> Projects</span> 
       </h1>
 
       <div className='mt-20 md:mt-10 shadow-lg px-5 py-10 rounded-lg bg-white'>
@@ -51,7 +51,7 @@ export const ConfirmarCuenta = () => {
             <Link 
               className='block text-center md:my-0 my-2 text-slate-500 uppercase text-sm underline'
               to="/"
-            > Iniciar Sesión</Link>
+            > Log In</Link>
           </div>
         )}
       </div> 

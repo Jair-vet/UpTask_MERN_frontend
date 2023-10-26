@@ -60,7 +60,7 @@ export const OlvidePassword = () => {
           <input
             id='email'
             type='email'
-            placeholder='Email de Registro'
+            placeholder='Type your Email'
             className='w-full mt-1 p-2 border rounded-lg bg-gray-200'
             value={email}
             onChange={ e => setEmail(e.target.value)}
@@ -70,7 +70,7 @@ export const OlvidePassword = () => {
 
         <input 
           type='submit'
-          value='Enviar Instrucciones'
+          value='Submit'
           className='bg-sky-700 w-full mt-10 py-3 text-white uppercase font-bold rounded 
             hover:cursor-pointer hover:bg-sky-900 transition-colors mb-5'
         />
@@ -79,18 +79,18 @@ export const OlvidePassword = () => {
       <nav className="lg:flex lg:justify-between">
         {/* Registrarse en la App */}
         <div className='flex md:flex-row justify-center my-5'>
-          <p className='block text-center md:my-0 my-2 text-slate-900 uppercase text-sm mr-2'>¿No tienes una Cuenta?</p>
+          <p className='block text-center md:my-0 my-2 text-slate-900 uppercase text-sm mr-2'>You Don't have an account?</p>
           <Link 
             className='block text-center md:my-0 my-2 text-slate-500 uppercase text-sm underline'
             to="/registrar"
-          > Regístrate</Link>
+          > Sign In</Link>
         </div>
 
         {/* Iniciar Sesión */}
         <Link 
           className='block text-center my-5 text-slate-500 uppercase text-sm underline'
           to="/"
-        > Iniciar Sesión</Link>
+        > Log In</Link>
       </nav>
 
     </>

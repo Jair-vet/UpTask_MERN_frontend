@@ -29,7 +29,7 @@ export const FormularioProyecto = () => {
 
     if([nombre, descripcion, fechaEntrega, cliente].includes('') ) {
       mostrarAlerta({
-          msg: 'Todos los Campos son Obligatorios',
+          msg: 'All field are Required',
           error: true
       })
 
@@ -59,11 +59,11 @@ export const FormularioProyecto = () => {
       {
         id ? (
           <div className="p-3">
-            <p className="text-3xl mb-5 text-center text-gray-400 font-extrabold uppercase">Actualizar Proyecto</p>
+            <p className="text-3xl mb-5 text-center text-gray-400 font-extrabold uppercase">Update project</p>
           </div>
         ) : (
           <div className="p-3">
-            <p className="text-3xl mb-5 text-center text-gray-400 font-extrabold uppercase">Crear un Proyecto</p>
+            <p className="text-3xl mb-5 text-center text-gray-400 font-extrabold uppercase">Create Project</p>
           </div>
         )
       }
@@ -78,14 +78,15 @@ export const FormularioProyecto = () => {
             className="text-gray-700 uppercase font-bold text-sm"
             htmlFor="nombre" 
           >
-            Nombre Proyecto
+            
+            Project Name
           </label>
 
           <input 
             id="nombre"
             type="text"
             className="border-2 w-full p-2 mt-1 placeholder-gray-400 rounded-md focus:outline-none focus:ring focus:ring-sky-300"
-            placeholder="Nombre del Proyecto"
+            placeholder="Project Name"
             value={nombre}
             onChange={e => setNombre(e.target.value)}
           />
@@ -97,13 +98,13 @@ export const FormularioProyecto = () => {
             className="text-gray-700 uppercase font-bold text-sm mt-10"
             htmlFor="descripcion" 
           >
-            Descripción Proyecto
+            Project Description
           </label>
 
           <textarea 
             id="descripcion"
             className="border-2 w-full p-2 mt-1 placeholder-gray-400 rounded-md focus:outline-none focus:ring focus:ring-sky-300"
-            placeholder="Descripcion del Proyecto"
+            placeholder="Project Description"
             value={descripcion}
             onChange={e => setDescripcion(e.target.value)}
           />
@@ -115,7 +116,7 @@ export const FormularioProyecto = () => {
             className="text-gray-700 uppercase font-bold text-sm"
             htmlFor="fecha-entrega" 
           >
-            Fecha de Entrega
+            Date of Delivery
           </label>
 
           <input 
@@ -133,14 +134,14 @@ export const FormularioProyecto = () => {
             className="text-gray-700 uppercase font-bold text-sm"
             htmlFor="cliente" 
           >
-            Nombre Cliente
+            Client Name
           </label>
 
           <input 
             id="cliente"
             type="text"
             className="border-2 w-full p-2 mt-1 placeholder-gray-400 rounded-md focus:outline-none focus:ring focus:ring-sky-300"
-            placeholder="Nombre del CrearCliente"
+            placeholder="Client Name"
             value={cliente}
             onChange={e => setCliente(e.target.value)}
           />
@@ -149,7 +150,7 @@ export const FormularioProyecto = () => {
 
       <input
         type='submit'
-        value={id ? 'Actualizar Proyecto' : 'Crear Proyecto'}
+        value={id ? 'Update Project' : 'Create Project'}
         className='bg-sky-600 w-full p-3 uppercase font-bold text-white rounded cursor-pointer hover:bg-sky-700 duration-300'
       /> 
 

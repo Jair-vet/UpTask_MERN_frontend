@@ -14,7 +14,7 @@ export const FormularioColaborador = () => {
   
       if(email === '') {
           mostrarAlerta({
-            msg: 'El Email es Obligatorio',
+            msg: 'the Email is Mandatory',
             error: true
           })
           return
@@ -39,12 +39,12 @@ export const FormularioColaborador = () => {
               className='text-gray-700 uppercase font-bold text-sm' 
               htmlFor='email'
           >
-              Email Colaborador
+              Collaborator Email
           </label>
           <input
               type="email"
               id="email"
-              placeholder='Email del Usuario'
+              placeholder='Collaborator Email'
               className="border-2 w-full p-2 mt-1 placeholder-gray-400 rounded-md focus:outline-none focus:ring focus:ring-sky-300"
               value={email}
               onChange={e => setEmail(e.target.value)}
@@ -54,7 +54,7 @@ export const FormularioColaborador = () => {
       <input
           type="submit"
           className='bg-sky-600 hover:bg-sky-700 w-full p-3 text-white uppercase font-bold cursor-pointer transition-colors rounded text-sm'
-          value='Buscar Colaborador'
+          value='Search Collaborator'
       />
 
     </form>

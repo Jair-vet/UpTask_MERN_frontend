@@ -19,17 +19,17 @@ export const NuevoColaborador = () => {
 
   return (
     <>
-      <h1 className="text-4xl font-black">Añadir Colaborador@ al Proyecto: <p className="text-3xl mt-2 text-gray-500 font-extrabold uppercase">{proyecto.nombre}</p> </h1>
+      <h1 className="text-4xl font-black">Add Collaborator to the Project: <p className="text-3xl mt-2 text-gray-500 font-extrabold uppercase">{proyecto.nombre}</p> </h1>
 
       <div className="mt-10 flex justify-center">
         <FormularioColaborador />
       </div>
 
 
-      {cargando ? <p className="text-center">cargando...</p> : colaborador?._id && (
+      {cargando ? <p className="text-center">load...</p> : colaborador?._id && (
         <div className='flex justify-center mt-10'>
             <div className='bg-white py-10 px-5 md:w-1/2 rounded-lg shadow w-full'>
-                <h2 className="text-3xl mb-5 text-center text-gray-400 font-extrabold uppercase">Resultado</h2>
+                <h2 className="text-3xl mb-5 text-center text-gray-400 font-extrabold uppercase">Results</h2>
 
                 <div className='flex justify-between items-center'>
                   <p className='text-xl font-extrabold text-gray-500'>{colaborador.nombre}</p>
@@ -40,7 +40,7 @@ export const NuevoColaborador = () => {
                     onClick={() => agregarColaborador({
                       email: colaborador.email
                     })}
-                  >Agregar al Proyecto</button>
+                  >add Collaborator</button>
                 </div>
             </div>
         </div>

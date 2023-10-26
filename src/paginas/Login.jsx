@@ -45,8 +45,8 @@ export const Login = () => {
 
   return (
     <>
-      <h1 className="text-center text-sky-600 font-black text-5xl capitalize">Inicia Sesión y Administra tus
-        <span className='text-slate-700'> Proyectos</span> 
+      <h1 className="text-center text-sky-600 font-black text-5xl capitalize">Log In and Manage yours
+        <span className='text-slate-700'> Projects</span> 
       </h1>
 
       {msg && <Alerta alerta={alerta } />}
@@ -63,7 +63,7 @@ export const Login = () => {
           <input
             id='email'
             type='email'
-            placeholder='Email de Registro'
+            placeholder='Type your Email'
             className='w-full mt-1 p-2 border rounded-lg bg-gray-200'
             value={email}
             onChange={e => setEmail(e.target.value)}
@@ -77,7 +77,7 @@ export const Login = () => {
           <input
             id='password'
             type='password'
-            placeholder='Password'
+            placeholder='Type your Password'
             className='w-full mt-1 p-2 border rounded-lg bg-gray-200'
             value={password}
             onChange={e => setPassword(e.target.value)}
@@ -86,7 +86,7 @@ export const Login = () => {
 
         <input 
           type='submit'
-          value='Iniciar Sesión'
+          value='Log In'
           className='bg-sky-700 w-full mt-10 py-3 text-white uppercase font-bold rounded 
             hover:cursor-pointer hover:bg-sky-900 transition-colors mb-5'
         />
@@ -95,18 +95,18 @@ export const Login = () => {
       <nav className="lg:flex lg:justify-between">
         {/* Registrarse en la App */}
         <div className='flex md:flex-row justify-center my-5'>
-          <p className='block text-center md:my-0 my-2 text-slate-900 uppercase text-sm mr-2'>¿No tienes una Cuenta?</p>
+          <p className='block text-center md:my-0 my-2 text-slate-900 uppercase text-sm mr-2'>You don't have an account?</p>
           <Link 
             className='block text-center md:my-0 my-2 text-slate-500 uppercase text-sm underline'
             to="registrar"
-          > Regístrate</Link>
+          > Sign Up</Link>
         </div>
 
         {/* Olvide Passsword */}
         <Link 
           className='block text-center my-5 text-slate-500 uppercase text-sm underline'
           to="olvide-password"
-        > Olvidé mi Password</Link>
+        > Forgot your Password</Link>
       </nav>
 
     </>

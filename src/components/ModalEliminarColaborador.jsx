@@ -48,7 +48,7 @@ const ModalEliminarColaborador = () => {
                                     className="bg-white rounded-md text-red-400 hover:text-red-500 focus:outline-none"
                                     onClick={ handleModalEliminarColaborador }
                                 >
-                                <span className="sr-only">Cerrar</span>
+                                <span className="sr-only">Close</span>
                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
                                         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
                                     </svg>
@@ -64,12 +64,12 @@ const ModalEliminarColaborador = () => {
                                 </div>
                                 <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left w-full">
                                     <Dialog.Title as="h3" className="text-3xl mb-5 text-center text-gray-400 font-extrabold uppercase">
-                                        Eliminar Colaborador
+                                        Delete Collaborator
                                     </Dialog.Title>
 
                                     <div className='mt-2'>
                                         <p className='text-sm text-gray-500 uppercase'>
-                                            Una vez eliminando el Colaborador@ no se podrá recuperar
+                                            Once the Collaborator is deleted it cannot be recovered
                                         </p>
                                     </div>
 
@@ -81,13 +81,13 @@ const ModalEliminarColaborador = () => {
                                                     className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-500 duration-300 hover:bg-red-700 text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
                                                     onClick={eliminarColaborador}
                                                 >
-                                                    Eliminar
+                                                    Delete
                                                 </button>
                                                 <button
                                                     type="button"
                                                     className="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 duration-300 hover:text-white hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 sm:mt-0 sm:w-auto sm:text-sm"
                                                     onClick={ handleModalEliminarColaborador }
-                                                > Cancelar</button>
+                                                > Cancel</button>
                                             </div>
                                     </div>
 

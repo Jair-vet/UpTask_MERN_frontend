@@ -16,7 +16,7 @@ export const Tarea = ({ tarea }) => {
             <p className="mb-1 text-xl">{nombre}</p>
             <p className="mb-1 text-sm text-gray-500 uppercase">{descripcion}</p>
             <p className="mb-1 text-sm">{ formatearFecha(fechaEntrega)}</p>
-            <p className="mb-1 text-gray-600">Prioridad: {prioridad}</p>
+            <p className="mb-1 text-gray-600">Priority: {prioridad}</p>
         </div>
 
         {/* Botones Acciones */}
@@ -25,21 +25,21 @@ export const Tarea = ({ tarea }) => {
                 <button
                     className="bg-indigo-500 duration-300 hover:bg-indigo-700 px-4 py-3 text-white uppercase font-bold text-sm rounded-lg"
                     onClick={() => handleModalEditarTarea(tarea)}
-                >Editar</button>
+                >Edit</button>
             )}
 
             {/* Botones Incompleta, Completa */}
             <button
                 className={`${estado ? 'bg-emerald-600' : 'bg-gray-600'} px-4 py-3 text-white uppercase font-bold text-sm rounded-lg`}
                 onClick={() => completarTarea(_id)}
-            >{estado ? 'Completa' : 'Incompleta'}</button>
+            >{estado ? 'Complete' : 'Incomplete'}</button>
 
 
             { admin && (
                 <button
                     className="bg-red-500 duration-300 hover:bg-red-700 px-4 py-3 text-white uppercase font-bold text-sm rounded-lg"
                     onClick={ () => handleModalEliminarTarea(tarea) }
-                >Eliminar</button>
+                >Delete</button>
             )}
 
         </div>

@@ -63,8 +63,8 @@ export const NuevoPassword = () => {
 
   return (
     <>
-      <h1 className="text-center text-sky-600 font-black text-5xl capitalize">Reestablece tu password y no pierdas acceso a Tus
-        <span className='text-slate-700'> Proyectos</span> 
+      <h1 className="text-center text-sky-600 font-black text-5xl capitalize">Reset your password and don't lose access to your
+        <span className='text-slate-700'> Projects</span> 
       </h1>
 
       {msg && <Alerta alerta={alerta} />}
@@ -80,11 +80,11 @@ export const NuevoPassword = () => {
             <label 
               className='uppercase text-gray-600 block text-xl font-bold'
               htmlFor='password'
-            >Nuevo Password</label>
+            >New Password</label>
             <input
               id='password'
               type='password'
-              placeholder='Escribe tu Nuevo Password'
+              placeholder='Type your new Password'
               className='w-full mt-1 p-2 border rounded-lg bg-gray-200'
               value={password}
               onChange={e => setPassword(e.target.value)}
@@ -93,7 +93,7 @@ export const NuevoPassword = () => {
 
           <input 
             type='submit'
-            value='Guardar Nuevo Password'
+            value='Save new Password'
             className='bg-sky-700 w-full mt-10 py-3 text-white uppercase font-bold rounded 
               hover:cursor-pointer hover:bg-sky-900 transition-colors mb-5'
           />
@@ -104,7 +104,7 @@ export const NuevoPassword = () => {
           <Link 
               className='block text-center my-5 text-slate-500 uppercase text-sm'
               to="/"
-          >Inicia Sesión</Link>
+          >Log in</Link>
       )}
 
     </>

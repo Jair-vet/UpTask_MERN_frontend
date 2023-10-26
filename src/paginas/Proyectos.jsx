@@ -11,7 +11,7 @@ export const Proyectos = () => {
   return (
 
     <>
-      <h1 className="text-4xl font-black">Proyectos</h1>
+      <h1 className="text-4xl font-black">Projects</h1>
       
       {msg && <Alerta alerta={alerta} />}
 
