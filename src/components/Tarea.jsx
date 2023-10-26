@@ -1,4 +1,5 @@
 import { formatearFecha } from "../helpers/formatearFecha"
+import useAdmin from "../hooks/useAdmin";
 import useProyectos from "../hooks/useProyectos"
 
 export const Tarea = ({ tarea }) => {
@@ -6,6 +7,7 @@ export const Tarea = ({ tarea }) => {
     const { handleModalEditarTarea, handleModalEliminarTarea } = useProyectos()
     const { descripcion, nombre, prioridad, fechaEntrega, estado, _id } = tarea;
 
+    const {admin} = useAdmin()
 
   return (
     <div className="border-b p-5 flex md:flex-row flex-col justify-between items-center ">
@@ -19,10 +21,12 @@ export const Tarea = ({ tarea }) => {
 
         {/* Botones Acciones */}
         <div className="flex md:flex-row flex-col gap-2">
-            <button
-                className="bg-indigo-500 duration-300 hover:bg-indigo-700 px-4 py-3 text-white uppercase font-bold text-sm rounded-lg"
-                onClick={() => handleModalEditarTarea(tarea)}
-            >Editar</button>
+            { admin && (
+                <button
+                    className="bg-indigo-500 duration-300 hover:bg-indigo-700 px-4 py-3 text-white uppercase font-bold text-sm rounded-lg"
+                    onClick={() => handleModalEditarTarea(tarea)}
+                >Editar</button>
+            )}
 
             { estado 
                 ? (
@@ -35,11 +39,12 @@ export const Tarea = ({ tarea }) => {
                     >Incompleta</button>
                 )
             }
-            
-            <button
-                className="bg-red-500 duration-300 hover:bg-red-700 px-4 py-3 text-white uppercase font-bold text-sm rounded-lg"
-                onClick={ () => handleModalEliminarTarea(tarea) }
-            >Eliminar</button>
+            { admin && (
+                <button
+                    className="bg-red-500 duration-300 hover:bg-red-700 px-4 py-3 text-white uppercase font-bold text-sm rounded-lg"
+                    onClick={ () => handleModalEliminarTarea(tarea) }
+                >Eliminar</button>
+            )}
 
         </div>
     </div>
