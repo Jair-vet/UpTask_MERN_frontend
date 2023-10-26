@@ -6,6 +6,7 @@ import { Tarea } from '../components/Tarea';
 import ModalEliminarTarea from '../components/ModalEliminarTarea';
 import { Alerta } from '../components/Alerta';
 import { Colaborador } from '../components/Colaborador';
+import ModalEliminarColaborador from '../components/ModalEliminarColaborador';
 
 export const Proyecto = () => {
 
@@ -111,6 +112,7 @@ export const Proyecto = () => {
 
         <ModalFormularioTarea />
         <ModalEliminarTarea />
+        <ModalEliminarColaborador />
 
     </>
   )
