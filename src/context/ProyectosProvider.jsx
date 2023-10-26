@@ -405,6 +405,10 @@ const ProyectosProvider = ({children}) => {
         }
     }
 
+    const completarTarea = async id => {
+
+    }
+
 
 
     return (

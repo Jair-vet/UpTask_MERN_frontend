@@ -7,7 +7,7 @@ export const Tarea = ({ tarea }) => {
     const { handleModalEditarTarea, handleModalEliminarTarea } = useProyectos()
     const { descripcion, nombre, prioridad, fechaEntrega, estado, _id } = tarea;
 
-    const {admin} = useAdmin()
+    const admin = useAdmin()
 
   return (
     <div className="border-b p-5 flex md:flex-row flex-col justify-between items-center ">
