@@ -37,9 +37,9 @@ export const NuevoColaborador = () => {
                   <button
                     type="button"
                     className='bg-slate-500 duration-300 hover:bg-emerald-600 px-5 py-2 rounded-lg uppercase text-white font-bold text-sm'
-                    // onClick={() => agregarColaborador({
-                    //   email: colaborador.email
-                    // })}
+                    onClick={() => agregarColaborador({
+                      email: colaborador.email
+                    })}
                   >Agregar al Proyecto</button>
                 </div>
             </div>
