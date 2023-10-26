@@ -356,7 +356,10 @@ const ProyectosProvider = ({children}) => {
                 error: false
             })
             setColaborador({})
-            setAlerta({})
+            
+            setTimeout(() => {
+                setAlerta({})
+            }, 3000);
 
 
         } catch (error) {
