@@ -26,25 +26,25 @@ export const NuevoColaborador = () => {
       </div>
 
 
-      {/* {cargando ? <p className="text-center">cargando...</p> : colaborador?._id && (
+      {cargando ? <p className="text-center">cargando...</p> : colaborador?._id && (
         <div className='flex justify-center mt-10'>
             <div className='bg-white py-10 px-5 md:w-1/2 rounded-lg shadow w-full'>
-                <h2 className='text-center mb-10 text-2xl font-bold'>Resultado:</h2>
+                <h2 className="text-3xl mb-5 text-center text-gray-400 font-extrabold uppercase">Resultado</h2>
 
                 <div className='flex justify-between items-center'>
-                  <p>{colaborador.nombre}</p>
+                  <p className='text-xl font-extrabold text-gray-500'>{colaborador.nombre}</p>
 
                   <button
                     type="button"
-                    className='bg-slate-500 px-5 py-2 rounded-lg uppercase text-white font-bold text-sm'
-                    onClick={() => agregarColaborador({
-                      email: colaborador.email
-                    })}
+                    className='bg-slate-500 duration-300 hover:bg-emerald-600 px-5 py-2 rounded-lg uppercase text-white font-bold text-sm'
+                    // onClick={() => agregarColaborador({
+                    //   email: colaborador.email
+                    // })}
                   >Agregar al Proyecto</button>
                 </div>
             </div>
         </div>
-      ) } */}
+      ) }
     </>
   )
 }
