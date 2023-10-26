@@ -9,6 +9,7 @@ export const Tarea = ({ tarea }) => {
 
     const admin = useAdmin()
 
+
   return (
     <div className="border-b p-5 flex md:flex-row flex-col justify-between items-center ">
        {/* Información de la Tarea */}
@@ -16,7 +17,11 @@ export const Tarea = ({ tarea }) => {
             <p className="mb-1 text-xl">{nombre}</p>
             <p className="mb-1 text-sm text-gray-500 uppercase">{descripcion}</p>
             <p className="mb-1 text-sm">{ formatearFecha(fechaEntrega)}</p>
-            <p className="mb-1 text-gray-600">Priority: {prioridad}</p>
+            <div className="flex md:justify-start justify-center">
+                <p className="mb-1 text-md font-extrabold text-gray-500 ">Priority:</p>
+                <p className={`${prioridad === 'High' ? 'bg-red-300' : '' || prioridad === 'Medium' ? 'bg-amber-200' : 'bg-emerald-200' } mb-1 text-blackrounded-md px-3 rounded-md`}> {prioridad}</p>
+            </div>
+            { estado && <p className="text-xs bg-green-600 uppercase p-1 mb-2 rounded-lg text-white">Finished by: {tarea.completado.nombre}</p>}
         </div>
 
         {/* Botones Acciones */}
