@@ -375,7 +375,7 @@ const ProyectosProvider = ({children}) => {
         setColaborador(colaborador)
     }
 
-    const eliminarColaborador = async email => {
+    const eliminarColaborador = async () => {
         try {
             const token = localStorage.getItem('token')
             if(!token) return
@@ -389,10 +389,10 @@ const ProyectosProvider = ({children}) => {
             const { data } = await clienteAxios.post(`/proyectos/eliminar-colaborador/${proyecto._id}`, { id: colaborador._id }, config)
 
             const proyectoActualizado = {...proyecto}
-
             proyectoActualizado.colaboradores = proyectoActualizado.colaboradores.filter(colaboradorState => colaboradorState._id !== colaborador._id )
 
             setProyecto(proyectoActualizado)
+            
             setAlerta({
                 msg: data.msg,
                 error: false
