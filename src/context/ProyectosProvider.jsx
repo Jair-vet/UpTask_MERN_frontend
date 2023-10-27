@@ -19,7 +19,7 @@ const ProyectosProvider = ({children}) => {
     const [ modalEliminarTarea, setModalEliminarTarea ] = useState(false)
     const [ colaborador, setColaborador] = useState({})
     const [ modalEliminarColaborador, setModalEliminarColaborador] = useState(false)
-    // const [ buscador, setBuscador] = useState(false)
+    const [ buscador, setBuscador] = useState(false)
 
 
     const navigate = useNavigate()
@@ -435,6 +435,16 @@ const ProyectosProvider = ({children}) => {
         
     }
 
+    const handleBuscador = () => {
+        setBuscador(!buscador)
+    }
+
+    const cerrarSesionProyectos = () => {
+        setProyectos([])
+        setProyecto({})
+        setAlerta({})
+
+    }
 
 
     return (
@@ -467,7 +477,10 @@ const ProyectosProvider = ({children}) => {
                 eliminarColaborador,
                 modalEliminarColaborador,
                 completarTarea,
+                handleBuscador,
+                
 
+                cerrarSesionProyectos,
             }}
         >
 
