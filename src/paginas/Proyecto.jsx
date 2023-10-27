@@ -19,7 +19,7 @@ export const Proyecto = () => {
 
     const params = useParams()
     const { obtenerProyecto, proyecto, cargando, handleModalTarea, alerta, 
-        submitTareasProyecto, eliminarTareaProyecto } = useProyectos()
+        submitTareasProyecto, eliminarTareaProyecto, actualizarTareaProyecto } = useProyectos()
     
     const admin = useAdmin()
 
@@ -46,11 +46,11 @@ export const Proyecto = () => {
           }
         })
     
-    //     socket.on('tarea actualizada', tareaActualizada => {
-    //       if(tareaActualizada.proyecto._id === proyecto._id) {
-    //         actualizarTareaProyecto(tareaActualizada)
-    //       }
-    //     })
+        socket.on('tarea actualizada', tareaActualizada => {
+          if(tareaActualizada.proyecto._id === proyecto._id) {
+            actualizarTareaProyecto(tareaActualizada)
+          }
+        })
     // 
     //     socket.on('nuevo estado', nuevoEstadoTarea => {
     //       if(nuevoEstadoTarea.proyecto._id === proyecto._id) {
@@ -109,11 +109,11 @@ export const Proyecto = () => {
             <p className='text-3xl mt-7 md:text-left text-center text-gray-500 font-extrabold uppercase'>Project Tasks</p>
             
             {/* Mensaje de Alerta */}
-            {/* <div className="flex justify-center ">
+            <div className="flex justify-center ">
                 <div className='w-full md:w-1/3 lg:w-1/4'>
                     { msg && <Alerta alerta={alerta}/> }
                 </div>
-            </div> */}
+            </div>
 
             <div className='bg-white overflow-auto shadow mt-10 rounded-lg'>
                 {proyecto.tareas?.length ? 
