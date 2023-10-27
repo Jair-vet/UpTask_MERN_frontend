@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import useProyectos from '../hooks/useProyectos'
 import useAuth from '../hooks/useAuth'
+import Busqueda from "./Busqueda"
 // import Busqueda from './Busqueda'
 
 export const Header = () => {
@@ -20,11 +21,11 @@ export const Header = () => {
             <h2 className="text-4xl text-sky-600 text-center font-black">UpTask</h2>
 
             <div className="flex justify-center">
-                <input 
-                    type="search"
-                    placeholder="Search Projects"
+                <button 
+                    type="button"
                     className="rounded-lg lg:w-96 block p-2 border"
-                />
+                    onClick={ handleBuscador }
+                >Search Projects</button>
             </div>
 
             <div className="flex items-center gap-4 md:mt-0 mt-6 justify-center">
@@ -38,6 +39,8 @@ export const Header = () => {
                     className="text-white text-sm bg-sky-600 hover:bg-sky-700 duration-300 p-3 rounded-md uppercase font-bold"
                     onClick={handleCerrarSesion}
                 >Sign off</button>
+
+                <Busqueda />
             </div>
         </div>
     </header>

@@ -477,8 +477,9 @@ const ProyectosProvider = ({children}) => {
                 eliminarColaborador,
                 modalEliminarColaborador,
                 completarTarea,
+                buscador,
                 handleBuscador,
-                
+
 
                 cerrarSesionProyectos,
             }}
