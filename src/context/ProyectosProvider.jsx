@@ -514,10 +514,10 @@ const ProyectosProvider = ({children}) => {
                 completarTarea,
                 buscador,
                 handleBuscador,
-                submitTareasProyecto,
-                eliminarTareaProyecto,
-                actualizarTareaProyecto,
-                cambiarEstadoTarea,
+                // submitTareasProyecto,
+                // eliminarTareaProyecto,
+                // actualizarTareaProyecto,
+                // cambiarEstadoTarea,
                 cerrarSesionProyectos,
             }}
         >
