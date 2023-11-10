@@ -24,6 +24,7 @@ export const Proyecto = () => {
 
     useEffect(() => {
         obtenerProyecto(params.id)
+        
     }, [])
 
 //     useEffect(() => {
