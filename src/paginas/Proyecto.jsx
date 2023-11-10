@@ -9,7 +9,6 @@ import { Colaborador } from '../components/Colaborador';
 import ModalEliminarColaborador from '../components/ModalEliminarColaborador';
 import useAuth from '../hooks/useAuth';
 import useAdmin from '../hooks/useAdmin';
-import io from 'socket.io-client'
 
 
 let socket;
@@ -19,7 +18,7 @@ export const Proyecto = () => {
 
     const params = useParams()
     const { obtenerProyecto, proyecto, cargando, handleModalTarea, alerta, 
-        submitTareasProyecto, eliminarTareaProyecto, actualizarTareaProyecto, cambiarEstadoTarea } = useProyectos()
+        /* submitTareasProyecto, eliminarTareaProyecto, actualizarTareaProyecto, cambiarEstadoTarea */ } = useProyectos()
     
     const admin = useAdmin()
 

@@ -2,7 +2,6 @@ import { useState, useEffect, createContext } from 'react'
 import clienteAxios from '../config/clienteAxios'
 import { useNavigate } from 'react-router-dom'
 import useAuth from '../hooks/useAuth'
-import io from 'socket.io-client'
 
 let socket;
 
@@ -47,9 +46,9 @@ const ProyectosProvider = ({children}) => {
         obtenerProyectos()
     }, [auth])
 
-    useEffect(() => {
-        socket = io(import.meta.env.VITE_BACKEND_URL)
-    }, [])
+    // useEffect(() => {
+    //     socket = io(import.meta.env.VITE_BACKEND_URL)
+    // }, [])
 
     const mostrarAlerta = alerta => {
         setAlerta(alerta)
@@ -450,29 +449,29 @@ const ProyectosProvider = ({children}) => {
     }
 
     // Socket io
-    const submitTareasProyecto = (tarea) => {
-        // Agregar la tarea al State
-        const proyectoActualizado = {...proyecto}
-        proyectoActualizado.tareas = [...proyectoActualizado.tareas, tarea]
-        setProyecto(proyectoActualizado)
-    }
-    const eliminarTareaProyecto = (tarea) => {
-        // Actualizar el State Eliminar Proyecto
-        const proyectoActualizado = {...proyecto}
-        proyectoActualizado.tareas = proyectoActualizado.tareas.filter(tareaState => tareaState._id !== tarea._id )
-        setProyecto(proyectoActualizado)
-    }
-    const actualizarTareaProyecto = (tarea) => {
-        // Actualizar el State Editar Proyecto
-        const proyectoActualizado = {...proyecto}
-        proyectoActualizado.tareas = proyectoActualizado.tareas.map( (tareaState) => tareaState._id === tarea._id ? tarea : tareaState )
-        setProyecto(proyectoActualizado)
-    }
-    const cambiarEstadoTarea = tarea => {
-        const proyectoActualizado = {...proyecto}
-        proyectoActualizado.tareas = proyectoActualizado.tareas.map(tareaState => tareaState._id === tarea._id ? tarea : tareaState)
-        setProyecto(proyectoActualizado)
-    }
+    // const submitTareasProyecto = (tarea) => {
+    //     // Agregar la tarea al State
+    //     const proyectoActualizado = {...proyecto}
+    //     proyectoActualizado.tareas = [...proyectoActualizado.tareas, tarea]
+    //     setProyecto(proyectoActualizado)
+    // }
+    // const eliminarTareaProyecto = (tarea) => {
+    //     // Actualizar el State Eliminar Proyecto
+    //     const proyectoActualizado = {...proyecto}
+    //     proyectoActualizado.tareas = proyectoActualizado.tareas.filter(tareaState => tareaState._id !== tarea._id )
+    //     setProyecto(proyectoActualizado)
+    // }
+    // const actualizarTareaProyecto = (tarea) => {
+    //     // Actualizar el State Editar Proyecto
+    //     const proyectoActualizado = {...proyecto}
+    //     proyectoActualizado.tareas = proyectoActualizado.tareas.map( (tareaState) => tareaState._id === tarea._id ? tarea : tareaState )
+    //     setProyecto(proyectoActualizado)
+    // }
+    // const cambiarEstadoTarea = tarea => {
+    //     const proyectoActualizado = {...proyecto}
+    //     proyectoActualizado.tareas = proyectoActualizado.tareas.map(tareaState => tareaState._id === tarea._id ? tarea : tareaState)
+    //     setProyecto(proyectoActualizado)
+    // }
 
 
     const cerrarSesionProyectos = () => {
