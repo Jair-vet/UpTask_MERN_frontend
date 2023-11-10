@@ -27,37 +27,37 @@ export const Proyecto = () => {
         obtenerProyecto(params.id)
     }, [])
 
-    useEffect(() => {
-        socket = io(import.meta.env.VITE_BACKEND_URL)
-        socket.emit('abrir proyecto', params.id)
-    }, [])
-
-
-    useEffect(() => {
-        socket.on("tarea agregada", tareaNueva => {
-          if(tareaNueva.proyecto === proyecto._id) {
-            submitTareasProyecto(tareaNueva)
-          }
-        })
-    
-        socket.on('tarea eliminada', tareaEliminada => {
-          if(tareaEliminada.proyecto === proyecto._id) {
-            eliminarTareaProyecto(tareaEliminada)
-          }
-        })
-    
-        socket.on('tarea actualizada', tareaActualizada => {
-          if(tareaActualizada.proyecto._id === proyecto._id) {
-            actualizarTareaProyecto(tareaActualizada)
-          }
-        })
-    
-        socket.on('nuevo estado', nuevoEstadoTarea => {
-          if(nuevoEstadoTarea.proyecto._id === proyecto._id) {
-            cambiarEstadoTarea(nuevoEstadoTarea)
-          }
-        })
-      })
+//     useEffect(() => {
+//         socket = io(import.meta.env.VITE_BACKEND_URL)
+//         socket.emit('abrir proyecto', params.id)
+//     }, [])
+// 
+// 
+//     useEffect(() => {
+//         socket.on("tarea agregada", tareaNueva => {
+//           if(tareaNueva.proyecto === proyecto._id) {
+//             submitTareasProyecto(tareaNueva)
+//           }
+//         })
+//     
+//         socket.on('tarea eliminada', tareaEliminada => {
+//           if(tareaEliminada.proyecto === proyecto._id) {
+//             eliminarTareaProyecto(tareaEliminada)
+//           }
+//         })
+//     
+//         socket.on('tarea actualizada', tareaActualizada => {
+//           if(tareaActualizada.proyecto._id === proyecto._id) {
+//             actualizarTareaProyecto(tareaActualizada)
+//           }
+//         })
+//     
+//         socket.on('nuevo estado', nuevoEstadoTarea => {
+//           if(nuevoEstadoTarea.proyecto._id === proyecto._id) {
+//             cambiarEstadoTarea(nuevoEstadoTarea)
+//           }
+//         })
+//       })
 
     const { nombre } = proyecto
     if(cargando) return 'Cargando...'

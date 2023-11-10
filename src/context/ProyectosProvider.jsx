@@ -221,11 +221,16 @@ const ProyectosProvider = ({children}) => {
 
             const { data } = await clienteAxios.post('/tareas', tarea, config)
 
+            
+            // SOCKET IO
+            // socket.emit('nueva tarea', data)
+            // Agregar la tarea al State
+            const proyectoActualizado = {...proyecto}
+            proyectoActualizado.tareas = [...proyectoActualizado.tareas, tarea]
+            setProyecto(proyectoActualizado)
+            
             setAlerta({})
             setModalFormularioTarea(false)
-
-            // SOCKET IO
-            socket.emit('nueva tarea', data)
 
         } catch (error) {
             console.log(error)
@@ -250,7 +255,11 @@ const ProyectosProvider = ({children}) => {
             setModalFormularioTarea(false)
 
             // SOCKET
-            socket.emit('actualizar tarea', data)
+            // socket.emit('actualizar tarea', data)
+            // Actualizar el State Editar Proyecto
+            const proyectoActualizado = {...proyecto}
+            proyectoActualizado.tareas = proyectoActualizado.tareas.map( (tareaState) => tareaState._id === tarea._id ? tarea : tareaState )
+            setProyecto(proyectoActualizado)
 
         } catch (error) {
             console.log(error)
@@ -286,10 +295,15 @@ const ProyectosProvider = ({children}) => {
                 error: false
             })
 
+            
             setModalEliminarTarea(false)
-
             // SOCKET
-            socket.emit('eliminar tarea', tarea)
+            // socket.emit('eliminar tarea', tarea)
+            
+            // Actualizar el State Eliminar Proyecto
+            const proyectoActualizado = {...proyecto}
+            proyectoActualizado.tareas = proyectoActualizado.tareas.filter(tareaState => tareaState._id !== tarea._id )
+            setProyecto(proyectoActualizado)
 
             setTarea({})
 
@@ -420,7 +434,10 @@ const ProyectosProvider = ({children}) => {
             setAlerta({})
 
             // socket
-            socket.emit('cambiar estado', data)
+            // socket.emit('cambiar estado', data)
+            const proyectoActualizado = {...proyecto}
+            proyectoActualizado.tareas = proyectoActualizado.tareas.map(tareaState => tareaState._id === tarea._id ? tarea : tareaState)
+            setProyecto(proyectoActualizado)
 
         } catch (error) {
             console.log(error.response)
